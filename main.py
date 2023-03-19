@@ -3,6 +3,19 @@ from contextlib import contextmanager
 
 @contextmanager
 def postgresql_connection(dbname, user, password, host, port):
+    """
+    Creates a context manager for a PostgreSQL database connection.
+
+    Args:
+        dbname (str): The name of the database to connect to.
+        user (str): The username for the database connection.
+        password (str): The password for the database connection.
+        host (str): The host address of the database server.
+        port (str): The port number for the database server.
+
+    Yields:
+        psycopg2.extensions.cursor: A cursor object for executing SQL statements.
+    """
     conn = psycopg2.connect(
         dbname=dbname,
         user=user,
